@@ -27,21 +27,14 @@ class PinPut extends StatefulWidget {
     this.eachFieldPadding,
     this.eachFieldConstraints =
         const BoxConstraints(minHeight: 40, minWidth: 40),
-    this.inputDecoration = const InputDecoration(
-      contentPadding: EdgeInsets.all(0),
-      border: InputBorder.none,
-      counterText: '',
-    ),
     this.animationCurve = Curves.linear,
     this.animationDuration = const Duration(milliseconds: 160),
     this.pinAnimationType = PinAnimationType.slide,
     this.slideTransitionBeginOffset,
     this.enabled = true,
     this.autofocus = false,
-    this.autoValidate = false,
     this.keyboardAppearance,
     this.inputFormatters,
-    this.validator,
     this.keyboardType = TextInputType.number,
     this.obscureText,
     this.textCapitalization = TextCapitalization.none,
@@ -140,12 +133,6 @@ class PinPut extends StatefulWidget {
   ///  ```
   final BoxConstraints eachFieldConstraints;
 
-  /// The decoration to show around the text [PinPut].
-  ///
-  /// can be configured to show an icon, border,counter, label, hint text, and error text.
-  /// set counterText to '' to remove bottom padding entirely
-  final InputDecoration inputDecoration;
-
   /// curve of every [PinPut] Animation
   final Curve animationCurve;
 
@@ -166,14 +153,6 @@ class PinPut extends StatefulWidget {
   /// {@macro flutter.widgets.editableText.autofocus}
   final bool autofocus;
 
-  /// If true [validator] function is called when [PinPut] value changes
-  /// alternatively you can use [GlobalKey]
-  /// ```dart
-  ///   final _formKey = GlobalKey<FormState>();
-  ///   _formKey.currentState.validate()
-  /// ```
-  final bool autoValidate;
-
   /// The appearance of the keyboard.
   /// This setting is only honored on iOS devices.
   /// If unset, defaults to the brightness of [ThemeData.primaryColorBrightness].
@@ -181,21 +160,6 @@ class PinPut extends StatefulWidget {
 
   /// {@macro flutter.widgets.editableText.inputFormatters}
   final List<TextInputFormatter> inputFormatters;
-
-  /// An optional method that validates an input. Returns an error string to
-  /// display if the input is invalid, or null otherwise.
-  ///
-  /// The returned value is exposed by the [FormFieldState.errorText] property.
-  /// The [TextFormField] uses this to override the [InputDecoration.errorText]
-  /// value.
-  ///
-  /// Alternating between error and normal state can cause the height of the
-  /// [TextFormField] to change if no other subtext decoration is set on the
-  /// field. To create a field whose height is fixed regardless of whether or
-  /// not an error is displayed, either wrap the  [TextFormField] in a fixed
-  /// height parent like [SizedBox], or set the [TextFormField.helperText]
-  /// parameter to a space.
-  final FormFieldValidator<String> validator;
 
   /// {@macro flutter.widgets.editableText.keyboardType}
   final TextInputType keyboardType;

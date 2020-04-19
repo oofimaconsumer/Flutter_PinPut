@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:pinput/pin_put/pin_put.dart';
@@ -79,13 +80,10 @@ class PinPutState extends State<PinPut> with WidgetsBindingObserver {
   }
 
   Widget get _hiddenTextField {
-    return TextFormField(
+    return CupertinoTextField(
       controller: _controller,
       onTap: widget.onTap,
-      onSaved: widget.onSaved,
       onChanged: widget.onChanged,
-      validator: widget.validator,
-      autovalidate: widget.autoValidate,
       textInputAction: widget.textInputAction,
       focusNode: _focusNode,
       enabled: widget.enabled,
@@ -101,8 +99,8 @@ class PinPutState extends State<PinPut> with WidgetsBindingObserver {
       enableInteractiveSelection: false,
       maxLength: widget.fieldsCount,
       showCursor: false,
-      scrollPadding: EdgeInsets.all(0),
-      decoration: widget.inputDecoration,
+      decoration: null,
+      scrollPadding: EdgeInsets.all(0.0),
       style: widget.textStyle != null
           ? widget.textStyle.copyWith(color: Colors.transparent)
           : TextStyle(color: Colors.transparent),
