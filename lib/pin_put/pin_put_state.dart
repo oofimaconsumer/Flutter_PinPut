@@ -8,6 +8,8 @@ class PinPutState extends State<PinPut> with WidgetsBindingObserver {
   FocusNode _focusNode;
   ValueNotifier<String> _textControllerValue;
 
+  String get code => _controller.text;
+
   int get selectedIndex => _controller.value.text.length;
 
   @override
